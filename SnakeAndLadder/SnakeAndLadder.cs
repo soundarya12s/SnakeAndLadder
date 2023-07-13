@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SnakeAndLadder
+namespace SnakeAndLadderPrg
 {
     public class SnakeAndLadder
     {
@@ -15,29 +15,32 @@ namespace SnakeAndLadder
         public int DieRoll()
         {
             int diePosition = random.Next(1, 7);
-            Console.WriteLine("Player Position" + " " + this.position);
+            Console.WriteLine("Player position: " + diePosition);
             count++;
             return diePosition;
         }
-        public void Game()
+        public int Game()
         {
             while (this.position < WINNING_POSITION)
             {
+
                 int option = random.Next(0, 3);
                 switch (option)
                 {
+
                     case NO_PLAY:
                         break;
                     case LADDER:
                         int dieRoll = DieRoll();
-                        if (this.position + dieRoll < WINNING_POSITION)
+                        if (this.position + dieRoll < 100)
                         {
                             this.position += dieRoll;
                         }
+                        this.position += DieRoll();
                         break;
                     case SNAKE:
                         dieRoll = DieRoll();
-                        if (this.position - dieRoll < STARTING_POSITION)
+                        if (this.position - dieRoll < 0)
                         {
                             this.position = 0;
                         }
@@ -45,10 +48,12 @@ namespace SnakeAndLadder
                         {
                             this.position -= dieRoll;
                         }
+
                         break;
                 }
             }
-            Console.WriteLine("Number of times the dice's played" + " " + count);
+            Console.WriteLine("Number of times dice's played; " + count);
+            return count;
         }
     }
 }
