@@ -16,7 +16,7 @@ namespace SnakeAndLadderPrg
         {
             int diePosition = random.Next(1, 7);
             count++;
-            Console.WriteLine("Player position: " + diePosition+" Player count: "+count);
+            Console.WriteLine("Player position: " + diePosition+" Player count: "+ this.position);
             return diePosition;
         }
         public int Game()
