@@ -52,7 +52,7 @@ namespace SnakeAndLadderPrg
                         break;
                 }
             }
-            Console.WriteLine("Number of times dice's played; " + count);
+            Console.WriteLine("Number of times dice's played: " + count);
             return count;
         }
     }

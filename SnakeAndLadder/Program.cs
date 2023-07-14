@@ -19,11 +19,11 @@ namespace SnakeAndLadderPrg
 
             if (player1.CompareTo(player2) > 0)
             {
-                Console.WriteLine("Player 1 ");
+                Console.WriteLine("Player 2");
             }
-            if (player1.CompareTo(player2) < 0)
+            else if (player1.CompareTo(player2) < 0)
             {
-                Console.WriteLine("Player 2 ");
+                Console.WriteLine("Player 1 ");
             }
             else
             {
