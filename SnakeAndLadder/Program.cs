@@ -15,7 +15,7 @@ namespace SnakeAndLadderPrg
             snake1.DieRoll();
             int player2 = snake1.Game();
 
-            Console.WriteLine(player1 + " " + player2);
+            Console.WriteLine("Player1 played: "+player1 + " times " +"\nPlayer2 played: "+ player2+"times");
 
             if (player1.CompareTo(player2) > 0)
             {

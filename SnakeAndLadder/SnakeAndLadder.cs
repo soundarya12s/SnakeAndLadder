@@ -10,14 +10,20 @@ namespace SnakeAndLadderPrg
     {
         const int NO_PLAY = 0, LADDER = 1, SNAKE = 2, WINNING_POSITION = 100, STARTING_POSITION = 0;
         int position = 0, count = 0;
+        bool WON=false;
 
         Random random = new Random();
         public int DieRoll()
         {
             int diePosition = random.Next(1, 7);
             count++;
-            Console.WriteLine("Player position: " + diePosition+" Player count: "+ this.position);
+           
+            Console.Write(this.position+"| ");
             return diePosition;
+        }
+        public bool GetWon()
+        {
+            return WON;
         }
         public int Game()
         {
@@ -32,15 +38,15 @@ namespace SnakeAndLadderPrg
                         break;
                     case LADDER:
                         int dieRoll = DieRoll();
-                        if (this.position + dieRoll < 100)
+                        if (this.position + dieRoll <= WINNING_POSITION)
                         {
                             this.position += dieRoll;
                         }
-                        this.position += DieRoll();
+                       
                         break;
                     case SNAKE:
                         dieRoll = DieRoll();
-                        if (this.position - dieRoll < 0)
+                        if (this.position - dieRoll < STARTING_POSITION)
                         {
                             this.position = 0;
                         }
@@ -52,7 +58,14 @@ namespace SnakeAndLadderPrg
                         break;
                 }
             }
-            Console.WriteLine("Number of times dice's played: " + count);
+
+            if (this.position == WINNING_POSITION)
+            {
+                WON = true;
+            }
+
+
+            Console.WriteLine("\nNumber of times dice's played: " + count);
             return count;
         }
     }
